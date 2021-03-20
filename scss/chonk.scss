@@ -1,0 +1,44 @@
+$pad: 100px;
+
+$bgColours: (
+    "green": #28a745,
+    "red": #dc3545,
+    "yellow": #ffc107,
+    "blue": #17a2b8
+);
+
+.chonk {
+    padding: 0 0 $pad;
+
+    &:first-child {
+        padding: $pad 0;
+    }
+
+    *:last-child {
+        margin-bottom: 0;
+    }
+
+    &.chonk {
+        &--top {
+            &-only {
+                padding: $pad 0 0;
+            }
+        }
+    
+        &--bottom {
+            &-only {
+                padding: 0 0 $pad;
+            }
+        }
+    
+        &--no-stack {
+            padding: $pad 0;
+        }
+
+        @each $bgColour, $i in $bgColours {
+            &--#{$bgColour} {
+                background-color: $i;
+            }	
+        }
+    }
+}
